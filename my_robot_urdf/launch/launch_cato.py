@@ -191,7 +191,7 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         parameters=[{'use_sim_time': True}],
-        # arguments=['-d', rviz_config_file],  # bỏ comment nếu có file config
+        arguments=['-d', rviz_config_file], 
     )
 
     # ── 9. Delay: chờ Gazebo + TF ổn định ─────────────────────────────────
