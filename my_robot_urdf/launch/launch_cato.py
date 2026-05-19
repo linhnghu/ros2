@@ -23,6 +23,7 @@ def generate_launch_description():
     package_name = 'my_robot_urdf'
     pkg_share    = get_package_share_directory(package_name)
     urdf_file    = os.path.join(pkg_share, 'urdf', 'rv2_2d.urdf')
+    rviz_config_file = os.path.join(pkg_share, 'my_robot_urdf', 'carto.rviz')
 
     with open(urdf_file, 'r') as f:
         robot_desc = f.read()
@@ -53,7 +54,7 @@ def generate_launch_description():
 
     # ── 3. Gazebo — dùng world có vật cản cho Cartographer
 
-    world_path = os.path.join(pkg_share, 'worlds', 'liosam_maze.world')
+    world_path = os.path.join(pkg_share, 'worlds', 'cartographer_test.world')
 
     gazebo_launch_file = os.path.join(
         get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py'
