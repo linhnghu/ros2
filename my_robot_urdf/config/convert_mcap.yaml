@@ -1,0 +1,4 @@
+output_bags:
+  - uri: /home/linh/ros2_ws/my_data_scan_mcap
+    storage_id: mcap
+    all_topics: true

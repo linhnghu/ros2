@@ -1,0 +1,442 @@
+<?xml version="1.0" ?>
+<robot name="rv2">
+
+  <link name="base_footprint"/>
+
+  <joint name="basefootprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="basefoot_link"/>
+    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="basefoot_link">
+    <inertial>
+      <origin xyz="-0.00539581685034137 -0.000957864068210713 0.0474591208308904" rpy="0 0 0" />
+      <mass value="1.64299975702237" />
+      <inertia 
+        ixx="0.00738471504042429" 
+        ixy="0.0" 
+        ixz="1.51530980773557E-06" 
+        iyy="0.00353729752937802" 
+        iyz="0.0" 
+        izz="0.00992762200745289" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/basefoot_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/basefoot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0.0474591208308905 -1.11141265973676E-05" rpy="0 0 0" />
+      <mass value="1.64299975702237" />
+      <inertia 
+        ixx="0.00353729752937802" 
+        ixy="0.0" 
+        ixz="0.0" 
+        iyy="0.00992762200745289" 
+        iyz="1.51530980773557E-06" 
+        izz="0.00738471504042429" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/base_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/base_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="-0.005384702723744 -0.0009578640682107 0" rpy="1.5707963267949 0 1.5707963267949" />
+    <parent link="basefoot_link" />
+    <child link="base_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+  <link name="rear_wheel_left">
+    <inertial>
+      <origin xyz="0 0 -0.0153379" rpy="0 0 0" />
+      <mass value="0.0897458773350996" />
+      <inertia ixx="2.8035e-05" ixy="0.0" ixz="0.0" 
+               iyy="2.8035e-05" iyz="0.0" izz="4.0241e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/rear_wheel_left_visual.STL" />
+      </geometry>
+      <material name=""><color rgba="0.79 0.82 0.93 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/rear_wheel_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_wheel_left_joint" type="continuous">
+    <origin xyz="0.092 -0.02 0.1355" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="rear_wheel_left" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="rear_wheel_right">
+    <inertial>
+      <origin xyz="0 0 0.0153379" rpy="0 0 0" />
+      <mass value="0.0897458773350996" />
+      <inertia ixx="2.8035e-05" ixy="0.0" ixz="0.0" 
+               iyy="2.8035e-05" iyz="0.0" izz="4.0241e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/rear_wheel_right_visual.STL" />
+      </geometry>
+      <material name=""><color rgba="0.79 0.82 0.93 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/rear_wheel_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_wheel_right_joint" type="continuous">
+    <origin xyz="0.092 -0.02 -0.1355" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="rear_wheel_right" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="front_wheel_left">
+    <inertial>
+      <origin xyz="0 0 -0.0153379" rpy="0 0 0" />
+      <mass value="0.0897458773350996" />
+      <inertia ixx="2.8035e-05" ixy="0.0" ixz="0.0" 
+               iyy="2.8035e-05" iyz="0.0" izz="4.0241e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/front_wheel_left_visual.STL" />
+      </geometry>
+      <material name=""><color rgba="0.79 0.82 0.93 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/front_wheel_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_wheel_left_joint" type="continuous">
+    <origin xyz="-0.092 -0.02 0.1355" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="front_wheel_left" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="front_wheel_right">
+    <inertial>
+      <origin xyz="0 0 0.0153379" rpy="0 0 0" />
+      <mass value="0.0897458773350996" />
+      <inertia ixx="2.8035e-05" ixy="0.0" ixz="0.0" 
+               iyy="2.8035e-05" iyz="0.0" izz="4.0241e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/front_wheel_right_visual.STL" />
+      </geometry>
+      <material name=""><color rgba="0.79 0.82 0.93 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/front_wheel_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_wheel_right_joint" type="continuous">
+    <origin xyz="-0.092 -0.02 -0.1355" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="front_wheel_right" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+
+  <link name="lidar">
+    <inertial>
+      <origin xyz="0 -0.0183354 0" rpy="0 0 0" />
+      <mass value="0.0435563882569202" />
+      <inertia ixx="8.6839e-06" ixy="0.0" ixz="0.0" 
+               iyy="9.4416e-06" iyz="0.0" izz="8.6839e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.570795 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/lidar.STL" />
+      </geometry>
+      <material name=""><color rgba="0.75 0.75 0.75 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="-0.101 0.094 0" rpy="-1.570795 3.14159 0" />
+    <parent link="base_link" />
+    <child link="lidar" />
+  </joint>
+
+
+  <link name="arm1">
+    <inertial>
+      <origin xyz="0 0.0919467 -0.0076622" rpy="0 0 0" />
+      <mass value="0.108931691252428" />
+      <inertia ixx="0.0003943" ixy="0.0" ixz="0.0" 
+               iyy="1.3056e-05" iyz="1.5560e-06" izz="0.0004027" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm1.STL" />
+      </geometry>
+      <material name=""><color rgba="0.75 0.75 0.75 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="arm1_joint" type="revolute">
+    <origin xyz="0 0.1785 -0.023" rpy="-3.14159265 0 3.14159265" />
+    <parent link="base_link" />
+    <child link="arm1" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-2" upper="2" effort="100.0" velocity="1" />
+  </joint>
+
+  <link name="arm2">
+    <inertial>
+      <origin xyz="0.0697356 0 -0.0075" rpy="0 0 0" />
+      <mass value="0.0852535940073319" />
+      <inertia ixx="1.0186e-05" ixy="0.0" ixz="0.0" 
+               iyy="0.0001953" iyz="0.0" izz="0.0002023" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm2.STL" />
+      </geometry>
+      <material name=""><color rgba="0.75 0.75 0.75 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="arm2_joint" type="revolute">
+    <origin xyz="0 0.18 -0.015" rpy="0 0 1.570796" />
+    <parent link="arm1" />
+    <child link="arm2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-2.8" upper="2.8" effort="100.0" velocity="1.0" />
+  </joint>
+
+  <link name="arm_ef">
+    <inertial>
+      <origin xyz="0.001117 0 -0.0024379" rpy="0 0 0" />
+      <mass value="0.017625" />
+      <inertia ixx="5.0100e-06" ixy="0.0" ixz="-1.0147e-06" 
+               iyy="1.2381e-05" iyz="0.0" izz="7.6655e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm_ef.STL" />
+      </geometry>
+      <material name=""><color rgba="0.75 0.75 0.75 1" /></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://my_robot_urdf/meshes/arm_ef.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="arm_ef_fix" type="fixed">
+    <origin xyz="0.17 0 -0.0075" rpy="0 0 0" />
+    <parent link="arm2" />
+    <child link="arm_ef" />
+    <axis xyz="0 0 0" />
+  </joint>
+  
+  <ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+
+  <joint name="arm1_joint">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  
+  <joint name="arm2_joint">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="front_wheel_left_joint">
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="front_wheel_right_joint">
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rear_wheel_left_joint">
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rear_wheel_right_joint">
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    
+    <joint name="arm1_joint">
+      <command_interface name="position">
+        <param name="min">-2.0</param>
+        <param name="max">2.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="arm2_joint">
+      <command_interface name="position">
+        <param name="min">-2.8</param>
+        <param name="max">2.8</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find my_robot_urdf)/config/arm_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+  
+  <gazebo reference="lidar">
+    <sensor type="ray" name="lidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.08</min>
+          <max>8.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+
+      <plugin name="lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+  <gazebo reference="base_link">
+    <sensor name="mpu_imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>50</update_rate>
+      <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <ros>
+          <remapping>~/out:=imu/data</remapping>
+        </ros>
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+</robot>
