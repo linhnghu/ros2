@@ -30,6 +30,7 @@ sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
 sudo apt install ros-humble-gazebo-ros2-control
 ```
 5.Cài GTSAM
+
 5.1. Cài dependency
 ```
 sudo apt update
