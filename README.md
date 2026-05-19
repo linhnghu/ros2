@@ -26,6 +26,15 @@ colcon build
 source install/setup.bash
 ```
 6. Chạy file launch
+6.1. Chạy Slam_toolbox
+```
+ros2 launch my_robot_urdf launch_slam_toolbox.py
+```
+6.2. Chạy Cartographer 2D
+```
+ros2 launch my_robot_urdf launch_cato.py
+```
+6.3. Chạy Lio-sam
 ```
 ros2 launch my_robot_urdf launch.py
 ```
